@@ -45,11 +45,8 @@
 
         body {
             background: linear-gradient(135deg, #ffd6e8 0%, #fff4f0 25%, #e0f4ff 75%, #ffe0f0 100%);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            position: relative;
+            min-height: 100vh;
             padding: 50px 20px;
             min-height: 100vh;
             font-family: 'Lato', sans-serif;
@@ -679,7 +676,7 @@
         .card-btn,
         .play-btn {
             padding: 18px 50px;
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.75), rgba(255, 105, 180, 0.75));
+            background: linear-gradient( 135deg, #f075b7, #ff93cd );
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -688,7 +685,6 @@
             cursor: pointer;
             border: 2px solid rgba(255, 255, 255, 0.5);
             font-size: 1.1em;
-            backdrop-filter: blur(5px);
             box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
