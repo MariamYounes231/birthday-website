@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Love ❤️‍🔥 </title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+        body {
+            font-family: 'Indie Flower', cursive !important;
+            /* background: #FDE3A7; CAPE HONEY */
+            background: radial-gradient(circle at top, #EAC3C3, #ffecec 60%, #ead4d4);
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: transparent;
+        }
+
+        h4 {
+            font-size: 26px;
+            line-height: 1px;
+            font-family: 'Amatic SC', cursive !important;
+        }
+
+        .color1 {
+            color: #1BBC9B;
+        }
+        /*MOUNTAIN MEADOW*/
+        .color2 {
+            color: #cd665c /*TALL POPPY*/
+        }
+
+
+        .card {
+            color: #013243; /*SHERPA BLUE*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 550px;
+            background: #e0e1dc;
+            transform-style: preserve-3d;
+            transform: translate(-50%,-50%) perspective(2000px);
+            box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+            transition: 1s;
+        }
+
+            .card:hover {
+                transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+                box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+            }
+
+            .card .imgBox {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transform-origin: left;
+                transition: .7s;
+            }
+
+            .card .bark {
+                position: absolute;
+                background: #e0e1dc;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: .7s;
+            }
+
+            .card .imgBox img {
+                min-width: 350px;
+                max-height: 550px;
+            }
+
+            .card:hover .imgBox {
+                transform: rotateY(-135deg);
+            }
+
+            .card:hover .bark {
+                opacity: 1;
+                transition: .6s;
+                box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+            }
+
+            .card .details {
+                position: absolute;
+                top: 0;
+                left: 0;
+                box-sizing: border-box;
+                padding: 0 0 0 10px;
+                z-index: -1;
+                margin-top: 70px;
+            }
+
+                .card .details p {
+                    font-size: 15px;
+                    line-height: 5px;
+                    transform: rotate(-10deg);
+                    padding: 0 0 0 20px;
+                }
+
+                .card .details h4 {
+                    text-align: center;
+                }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .message {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Back Button Styles */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #e79797, rgb(251, 132, 192, 0.75));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+            letter-spacing: 1px;
+            font-family: 'Indie Flower', cursive;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 12px 40px rgba(255, 20, 147, 0.5);
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.9), rgba(255, 105, 180, 0.9));
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .back-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Full screen photo section */
+        .photos {
+            height: 50vh;
+            background: #fff5d6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .gallery img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                transition: transform 0.3s ease;
+            }
+
+                .gallery img:hover {
+                    transform: scale(1.1);
+                }
+
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+            /* all hearts */
+            .confetti span {
+                position: absolute;
+                top: -10%;
+                font-size: 14px;
+                animation: fall linear infinite;
+                opacity: 0.8;
+            }
+
+                /* random spread + different speeds */
+                .confetti span:nth-child(1) {
+                    left: 5%;
+                    animation-duration: 4s;
+                }
+
+                .confetti span:nth-child(2) {
+                    left: 10%;
+                    animation-duration: 7s;
+                }
+
+                .confetti span:nth-child(3) {
+                    left: 15%;
+                    animation-duration: 5s;
+                }
+
+                .confetti span:nth-child(4) {
+                    left: 20%;
+                    animation-duration: 8s;
+                }
+
+                .confetti span:nth-child(5) {
+                    left: 25%;
+                    animation-duration: 6.5s;
+                }
+
+                .confetti span:nth-child(6) {
+                    left: 30%;
+                    animation-duration: 7.5s;
+                }
+
+                .confetti span:nth-child(7) {
+                    left: 35%;
+                    animation-duration: 5.5s;
+                }
+
+                .confetti span:nth-child(8) {
+                    left: 40%;
+                    animation-duration: 6.2s;
+                }
+
+                .confetti span:nth-child(9) {
+                    left: 45%;
+                    animation-duration: 8.2s;
+                }
+
+                .confetti span:nth-child(10) {
+                    left: 50%;
+                    animation-duration: 4s;
+                }
+
+                .confetti span:nth-child(11) {
+                    left: 55%;
+                    animation-duration: 7s;
+                }
+
+                .confetti span:nth-child(12) {
+                    left: 60%;
+                    animation-duration: 5.8s;
+                }
+
+                .confetti span:nth-child(13) {
+                    left: 65%;
+                    animation-duration: 6.9s;
+                }
+
+                .confetti span:nth-child(14) {
+                    left: 70%;
+                    animation-duration: 7.7s;
+                }
+
+                .confetti span:nth-child(15) {
+                    left: 75%;
+                    animation-duration: 6.1s;
+                }
+
+                .confetti span:nth-child(16) {
+                    left: 80%;
+                    animation-duration: 4.9s;
+                }
+
+                .confetti span:nth-child(17) {
+                    left: 85%;
+                    animation-duration: 7.3s;
+                }
+
+                .confetti span:nth-child(18) {
+                    left: 90%;
+                    animation-duration: 4.4s;
+                }
+
+                .confetti span:nth-child(19) {
+                    left: 95%;
+                    animation-duration: 8s;
+                }
+
+        /* falling animation */
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .bg-hearts {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+            .bg-hearts span {
+                position: absolute;
+                font-size: 30px;
+                opacity: 0.15;
+                animation: float 10s infinite ease-in-out;
+            }
+
+                .bg-hearts span:nth-child(1) {
+                    top: 10%;
+                    left: 10%;
+                }
+
+                .bg-hearts span:nth-child(2) {
+                    top: 20%;
+                    left: 80%;
+                }
+
+                .bg-hearts span:nth-child(3) {
+                    top: 60%;
+                    left: 20%;
+                }
+
+                .bg-hearts span:nth-child(4) {
+                    top: 70%;
+                    left: 70%;
+                }
+
+                .bg-hearts span:nth-child(5) {
+                    top: 40%;
+                    left: 50%;
+                }
+
+                .bg-hearts span:nth-child(6) {
+                    top: 15%;
+                    left: 40%;
+                }
+
+                .bg-hearts span:nth-child(7) {
+                    top: 75%;
+                    left: 30%;
+                }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Responsive Design - Tablet */
+        @media (max-width: 1024px) {
+            .card {
+                width: 350px;
+                height: 480px;
+            }
+
+            .card .imgBox img {
+                min-width: 300px;
+                max-height: 480px;
+            }
+
+            .card:hover {
+                transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.1);
+            }
+
+            .gallery {
+                gap: 20px;
+            }
+
+            .gallery img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .back-btn {
+                padding: 11px 28px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* Responsive Design - Mobile */
+        @media (max-width: 768px) {
+            .card {
+                width: 300px;
+                height: 420px;
+            }
+
+            .card .imgBox img {
+                min-width: 250px;
+                max-height: 420px;
+            }
+
+            .card:hover {
+                transform: translate(-50%,-50%) perspective(2000px) rotate(10deg) scale(1.05);
+                box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 5px 50px rgba(0,0,0,.5);
+            }
+
+            .card .details {
+                margin-top: 50px;
+            }
+
+            .card .details p {
+                font-size: 13px;
+                line-height: 4px;
+            }
+
+            h4 {
+                font-size: 20px;
+            }
+
+            .photos {
+                height: auto;
+                min-height: 50vh;
+            }
+
+            .gallery {
+                gap: 15px;
+                margin: 10px 0;
+            }
+
+            .gallery img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .message {
+                height: auto;
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .back-btn {
+                padding: 10px 24px;
+                font-size: 0.8em;
+                top: 15px;
+                left: 15px;
+            }
+        }
+
+        /* Responsive Design - Small Mobile */
+        @media (max-width: 480px) {
+            .card {
+                width: 260px;
+                height: 380px;
+            }
+
+            .card .imgBox img {
+                min-width: 220px;
+                max-height: 380px;
+            }
+
+            .card:hover {
+                transform: translate(-50%,-50%) perspective(2000px) rotate(5deg) scale(1.02);
+            }
+
+            .card .details {
+                margin-top: 40px;
+                padding: 0 0 0 5px;
+            }
+
+            .card .details p {
+                font-size: 12px;
+                line-height: 3px;
+                padding: 0 0 0 15px;
+            }
+
+            h4 {
+                font-size: 18px;
+                line-height: 1px;
+            }
+
+            .gallery {
+                gap: 10px;
+            }
+
+            .gallery img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .confetti span {
+                font-size: 12px;
+            }
+
+            .bg-hearts span {
+                font-size: 20px;
+            }
+
+            .back-btn {
+                padding: 18px 50px;
+                background: linear-gradient(135deg, rgba(255, 20, 147, 0.75), rgba(255, 105, 180, 0.75));
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                font-size: 1.1em;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <button class="back-btn" onclick="window.history.back()">BACK</button>
+
+
+    <section class="message">
+        <div class="bg-hearts">
+            <span>💖</span><span>💗</span><span>💘</span><span>💞</span><span>💖</span>
+            <span>💗</span><span>💘</span>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <div class="bark"></div>
+                <!--<img src="https://www.birthdaywishes.expert/wp-content/uploads/2016/06/I-love-you-so-much-Happy-Birthday.-On-cute-image-with-a-heart-smiling.-468x600.jpg">-->
+                <img src="CardCover.jfif">
+            </div>
+            <div class="details">
+                <h4 class="color1">To who makes my heart skip a beat ♥</h2>
+                    <h4 class="color2 margin">(HAPPY BIRTHDAY)</h3>
+                        <p>Dear Future Husband,</p>
+                        <!-- <p>Let's see.. .</p> -->
+                        <p>You are my sunshine,</p>
+                        <p>With you, even silence feels warm.</p>
+                        <p>and somehow you always</p>
+                        <p>know how to make me the happiest</p>
+                        <p>I’m so lucky you’re mine.</p>
+                        <p>You're not just my love, </p>
+                        <p>you are my home.</p>
+                        <p class="text-right">Happy Birthday, 3amorty!</p>
+                        <p class="text-right">♥Your Marioma</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
